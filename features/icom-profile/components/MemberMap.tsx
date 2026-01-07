@@ -49,9 +49,6 @@ function parseCoordinate(value: number | string | undefined): number {
     const stringValue = String(value).replace(',', '.');
     const parsed = parseFloat(stringValue);
 
-    // Debug: log to console
-    console.log('[DEBUG] parseCoordinate:', { original: value, stringValue, parsed });
-
     return isNaN(parsed) ? 0 : parsed;
 }
 
@@ -119,7 +116,7 @@ export default function MemberMap({ members, className }: MemberMapProps) {
                 ref={mapRef}
                 initialViewState={initialViewState}
                 style={{ width: "100%", height: "100%" }}
-                mapStyle={MAP_STYLES[styleIndex]}
+                mapStyle={MAP_STYLES[styleIndex] as any}
                 reuseMaps
                 onError={handleMapError}
             >
