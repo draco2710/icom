@@ -1,48 +1,29 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --color-primary: #007AFF;
-  --color-primary-blue: #007AFF;
-  --color-background-light: #FAFAFA;
-  --color-background-dark: #000000;
-  --color-card-light: #ffffff;
-  --color-card-dark: #1c1c1e;
-  --color-text-primary-light: #111827;
-  --color-text-primary-dark: #f2f2f7;
-  --color-text-secondary-light: #6B7280;
-  --color-text-secondary-dark: #8e8e93;
-  --color-accent-orange: #ff9500;
+:root {
+  --primary: #007AFF;
+}
 
-  --font-display: "Manrope", sans-serif;
-
-  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
+@layer base {
+  body {
+    @apply font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark antialiased;
+    min-height: max(884px, 100dvh);
   }
 }
 
-/* Custom Utilities */
-@utility no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-  &::-webkit-scrollbar {
+  .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-}
 
-@utility material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-}
-
-body {
-  @apply font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark antialiased;
-  min-height: max(884px, 100dvh);
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
 }
